@@ -20,19 +20,20 @@ class Session:
     fingerprint: str
     _sel: selrequests.Session
 
-    def __init__(self, user_agent: str, proxy_url: str=None,
+    def __init__(self, user_agent: str, proxy_url: str=None, headers = {},
                  host: str=DEFAULT_HOST):
         self.user_agent = user_agent
         self.proxy_url = proxy_url
+        self.headers = headers
         self.host = host
-        self.api = "v8"
+        self.api = "v9"
         self.build_number = 9999
 
         self.token = None
         self.fingerprint = None
         self.client_uuid = None
 
-        self._sel = selrequests.Session(proxy_url, user_agent)
+        self._sel = selrequests.Session(proxy_url, user_agent, headers)
         self._sel.set_origin(f"https://{self.host}/")
 
     def __enter__(self):
