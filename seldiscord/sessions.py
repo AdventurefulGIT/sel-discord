@@ -54,6 +54,7 @@ class Session:
             url=f"https://{self.host}/api/{self.api}/experiments",
         ) as resp:
             data = resp.json()
+            print(data)
             self.fingerprint = data["fingerprint"]
 
     """
