@@ -20,7 +20,7 @@ class Session:
     fingerprint: str
     _sel: selrequests.Session
 
-    def __init__(self, user_agent: str, proxy_url: str=None, headers = {},
+    def __init__(self, user_agent: str, proxy_url: str=None, headers = {}, token=None,
                  host: str=DEFAULT_HOST):
         self.user_agent = user_agent
         self.proxy_url = proxy_url
@@ -29,7 +29,7 @@ class Session:
         self.api = "v9"
         self.build_number = 9999
 
-        self.token = None
+        self.token = token
         self.fingerprint = None
         self.client_uuid = None
 
