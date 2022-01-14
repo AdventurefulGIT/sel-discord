@@ -62,12 +62,6 @@ class Session:
     """
     def gateway(self):
         proxy_config = {}
-        if self.proxy_url:
-            purl = urlparse(self.proxy_url)
-            proxy_config = dict(
-                http_proxy_host=purl.hostname,
-                http_proxy_port=purl.port
-            )
         ws = websocket.create_connection(
             f"wss://gateway.discord.gg/?encoding=json&v=8&compress=zlib-stream",
             **proxy_config,
