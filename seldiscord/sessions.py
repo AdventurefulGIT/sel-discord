@@ -63,7 +63,7 @@ class Session:
     def gateway(self):
         proxy_config = {}
         ws = websocket.create_connection(
-            f"wss://gateway.discord.gg/?encoding=json&v=8&compress=zlib-stream",
+            f"wss://gateway.discord.com/?encoding=json&v=8&compress=zlib-stream",
             **proxy_config,
             origin=f"https://{self.host}",
             header={
