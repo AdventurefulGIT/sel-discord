@@ -135,9 +135,6 @@ class Session:
         headers = headers or {}
         
         if url.startswith(f"https://{self.host}/api/"):
-            if self.token:
-                headers["Authorization"] = self.token
-            
             if self.fingerprint:
                 headers["X-Fingerprint"] = self.fingerprint
             
